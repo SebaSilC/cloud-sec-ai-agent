@@ -37,8 +37,10 @@ This project implements a CLI-based DevOps assistant that:
 
 Detects common cloud security misconfigurations:
 
-- Open security groups
-- Overly permissive IAM policies
+- Open security groups (`0.0.0.0/0`)
+- Overly permissive IAM policies (`"*"` or wildcard access)
+- Publicly accessible S3 buckets
+- Hardcoded secrets in Terraform files
 
 ```bash
 python cli.py scan examples/insecure_terraform
@@ -100,6 +102,16 @@ Displays exact changes before applying:
 
 ---
 
+### Severity Summary
+
+Displays a summary of detected issues by severity level:
+
+```text
+HIGH: 3 | MEDIUM: 1 | LOW: 0
+```
+
+---
+
 ### Backup and Restore
 
 Creates a backup before applying changes:
@@ -138,10 +150,11 @@ This tool addresses the gap between:
 - Security best practices
 
 It provides:
-- Immediate feedback on misconfigurations
-- Clear explanations for junior engineers
-- Safe and controlled remediation
-- Reduced risk of human error
+- Immediate detection of security issues across network, IAM, storage, and secrets
+- Clear explanations suitable for junior engineers
+- Safe and controlled remediation workflows
+- Risk visibility through severity classification
+- Reduced likelihood of human error in infrastructure changes
 
 ---
 
@@ -167,6 +180,11 @@ It provides:
 python cli.py scan examples/insecure_terraform
 python cli.py explain 1
 python cli.py fix 1 examples/insecure_terraform --dry-run
+
+The scan output includes:
+- Detected issues across multiple security domains
+- Severity classification
+- Summary of overall risk levels
 
 ---
 
