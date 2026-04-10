@@ -1,0 +1,26 @@
+[
+  {
+    "issue": "Open Security Group (0.0.0.0/0)",
+    "risk": "HIGH",
+    "fix": "Restrict CIDR to a trusted IP range",
+    "file": "main.tf"
+  },
+  {
+    "issue": "Overly permissive IAM policy (* or *:*)",
+    "risk": "HIGH",
+    "fix": "Restrict actions and resources to least privilege",
+    "file": "main.tf"
+  },
+  {
+    "issue": "S3 bucket is publicly accessible",
+    "risk": "HIGH",
+    "fix": "Set ACL to private and use bucket policies for controlled access",
+    "file": "main.tf"
+  },
+  {
+    "issue": "Potential hardcoded secret detected",
+    "risk": "HIGH",
+    "fix": "Use environment variables or a secrets manager instead of hardcoding",
+    "file": "main.tf"
+  }
+]
