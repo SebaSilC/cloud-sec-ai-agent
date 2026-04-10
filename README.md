@@ -4,6 +4,12 @@ AI-powered CLI tool that scans, explains, and safely fixes insecure Terraform co
 
 ---
 
+## Architecture Design
+
+![AI Agent Architecture](diagram.png)
+
+--- 
+
 ## Real-World Problem
 
 Modern cloud infrastructure is defined as code using tools like Terraform. However:
